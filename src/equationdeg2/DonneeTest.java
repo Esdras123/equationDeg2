@@ -45,7 +45,34 @@ public class DonneeTest {
     }
     
     private ArrayList<Double> generer(double a, double b, double c){
-        return null;
+        ArrayList<Double> liste=new ArrayList();  
+        
+           if (a==0 && b==0 && c==0)
+             {
+               liste.add(null);
+             }
+           if (a!=0 && b==0 && c==0)
+             {
+               liste.add(0.0);
+             }
+           if (a!=0 && b!=0 && c==0)
+             {
+               liste.add(0.0);
+               liste.add(((-1)*b));
+             }
+           if (a!=0 && b!=0 && c!=0)
+             {
+               liste.add(((-1)*c));
+              
+             }
+             
+           /* for(Object elem: liste)
+             {
+       	          System.out.println (elem);
+             }
+           */
+             
+        return liste;
     }
     
 }
