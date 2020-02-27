@@ -13,7 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author ESDRAS
  */
 public class EquationDeg2 {
@@ -22,7 +21,13 @@ public class EquationDeg2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Solver solver = new Solver();
+        System.out.println(solver.resolve(1, 4, 4));
+        System.out.println(solver.resolve(1, 0, 4));
+        System.out.println(solver.resolve(1, 6, 8));
+        System.out.println(solver.resolve(1, 4, 0));
+        System.out.println(solver.resolve(0, 6, 0));
+        System.out.println(solver.resolve(0, 0, 4));
     }
-    
+
 }
