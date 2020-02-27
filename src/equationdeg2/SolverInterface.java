@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * @author ESDRAS
  */
 public interface SolverInterface {
-    
     /*renvoie :
     ****null dans le cas ou a=b=c=0
     **** liste  {0, -b} dans le cas ou a, b différents de 0 et c=0

@@ -5,7 +5,6 @@
  */
 package equationdeg2;
 
-
 /**
  *
  * @author ESDRAS
