@@ -11,6 +11,6 @@ package equationdeg2;
  */
 public class Test {
     public static boolean testMethode(DonneeTest donneeT){
-        Solver solverInterface = (SolverInterface) Class.forName(donneeT.fonctionATester);
+        //Solver solverInterface = (SolverInterface) Class.forName(donneeT.fonctionATester);
     }
 }
