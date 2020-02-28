@@ -23,20 +23,20 @@ public class GenerationDonnee {
 
     /*generer les valeurs données pour chaque */
     public static ArrayList<ArrayList<Double>> genererDonneesEntree() {
-        ArrayList list1 = new ArrayList(Arrays.asList(0.0, 10e-7, -10e-6, 10e18, -10e14, Math.PI, 55/12, 30.0));
-        ArrayList list2 = new ArrayList(Arrays.asList(0.0, 10e-7, -10e-8, 10e25, -10e23, Math.exp(1), 22/7, 97.0));
-        ArrayList list3 = new ArrayList(Arrays.asList(0.0, 10e-13, -10e-9, 10e20, -10e-21, Math.sqrt(7), 22/21, 143.0));
+        ArrayList list1 = new ArrayList(Arrays.asList(0.0, 10e-7, -10e-6, 10e18, -10e14, Math.PI, (double) 55 / 12, 30.0));
+        ArrayList list2 = new ArrayList(Arrays.asList(0.0, 10e-7, -10e-8, 10e25, -10e23, Math.exp(1), (double) 22 / 7, 97.0));
+        ArrayList list3 = new ArrayList(Arrays.asList(0.0, 10e-13, -10e-9, 10e20, -10e-21, Math.sqrt(7), (double) 22 / 21, 143.0));
         ArrayList<ArrayList<Double>> list = new ArrayList<ArrayList<Double>>();
-        
+
         list.add(list1);
         list.add(list2);
         list.add(list3);
-        
+
         return list;
     }
 
     public static ArrayList<DonneeTest> getDonneesTest(String nomFichier, ArrayList<ArrayList<Double>> donnees, double tolerance, String fonctionAtester, String fonctionTest) {
-        if (!donnees.isEmpty()) {
+        if (donnees.size() != 0) {
             ArrayList<DonneeTest> donneeTest = new ArrayList();
             FileSystem fs = FileSystems.getDefault();
 
@@ -48,15 +48,18 @@ public class GenerationDonnee {
                 BufferedReader buff = new BufferedReader(lecture);
                 String ligne;
                 while ((ligne = buff.readLine()) != null) {
+                    //System.out.println(ligne.length());
+
                     ArrayList<Double> params = new ArrayList<Double>();
                     int p = 2;
                     int k = 0;
-                    System.out.print("\n");
-                    for (int i = 0; i < donnees.get(0).size(); i++) {
+                    //System.out.print("\n");
+                    for (int i = 0; i < donnees.size(); i += 1) {
                         k = k + p;
-                        double valeur = donnees.get(((int) ligne.charAt(k) - 97)).get(i);
+                        double valeur = (double) donnees.get(i).get(((int) ligne.charAt(k) - 97));
                         params.add(valeur);
                         p = 3;
+
                     }
 
                     Params pa = new Params();
@@ -77,5 +80,6 @@ public class GenerationDonnee {
         } else {
             return null;
         }
+
     }
 }

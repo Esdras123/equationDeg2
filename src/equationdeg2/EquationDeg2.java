@@ -18,15 +18,20 @@ public class EquationDeg2 {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
   
         ArrayList<DonneeTest> donneesTest = GenerationDonnee.getDonneesTest("scennarios.txt", GenerationDonnee.genererDonneesEntree(), 10e-6, "Solver", "Test");
-        System.out.println(donneesTest);
+
         Class solverInterface = Class.forName("equationdeg2.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
-        
+        int total = 0, totFalse = 0;
         for (int i=0; i<donneesTest.size(); i++){
             ArrayList<Double> results = solv.resolve(donneesTest.get(i).donneeEntree.a, donneesTest.get(i).donneeEntree.b, donneesTest.get(i).donneeEntree.c);
-            boolean decision = Test.verify(donneesTest.get(i).donneeEntree, results, donneesTest.get(i).tolerance);
-            System.out.println(donneesTest.get(i).toString() + " RO: " + results.toString() + "Oracle: " + decision);
+            boolean decision = Test.verify(donneesTest.get(i).donneeEntree, results, donneesTest.get(i).resultatAttendu, donneesTest.get(i).tolerance);
+            System.out.println(donneesTest.get(i).toString() + " RO: " + results.toString() + " Oracle: " + decision);
+            System.out.println("\n");
+            if (!decision)
+                totFalse += 1;
+            total += 1;
         }
+        System.out.println("\n\nTotal Tests Ratés: "+totFalse+"/"+" "+total);
 
     }
 }
