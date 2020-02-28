@@ -75,4 +75,12 @@ public class DonneeTest {
         return liste;
     }
     
+    @Override
+    public String toString(){
+        String chaine = donneeEntree.toString() + "   " + "tol: " + tolerance + "resultat attendu: ";
+        if (resultatAttendu == null)
+            return chaine + " RA: null";
+        
+        return chaine + resultatAttendu.toString();
+    }
 }

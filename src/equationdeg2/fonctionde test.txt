@@ -1,0 +1,18 @@
+class FonctionDtest{
+
+
+// prend la fonction d
+    public int G(double x, double y, double tol) {
+        double f = x+y;
+        double RA = somme(x,y);
+       double N = Math.abs(f, RA)
+        if (N<=tol){
+            return 1;
+        }else{
+            return 0;
+        }
+
+        
+
+    };
+}

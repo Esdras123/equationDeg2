@@ -11,4 +11,9 @@ package equationdeg2;
  */
 public class Params {
     public double a, b, c;
+    
+    @Override
+    public String toString(){
+        return "a: "+a+" b: "+b+" c: "+c+" ";
+    }
 }
