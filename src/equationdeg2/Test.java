@@ -37,7 +37,7 @@ public class Test {
                     if (results != null) {
                         for (int i = 0; i < results.size(); i++) {
                             double val = results.get(i);
-                            if (Math.abs((a * Math.pow(val, 2) + b * val + resultAttendu.get(0)) / resultAttendu.get(0)) >= tol) {
+                            if (Math.abs((a * Math.pow(val, 2) + b * val - resultAttendu.get(0)) / (-resultAttendu.get(0))) >= tol) {
                                 return false;
                             }
                         }
@@ -50,7 +50,7 @@ public class Test {
                 if (results != null && results.size() == 2) {
                     for (int i = 0; i < results.size(); i++) {
                         double val = results.get(i);
-                        if (val != 0.0 && Math.abs((a * val + resultAttendu.get(1)) / resultAttendu.get(1)) >= tol) {
+                        if (val != 0.0 && Math.abs((a * val - resultAttendu.get(1)) / resultAttendu.get(1)) >= tol) {
                             return false;
                         }
                     }

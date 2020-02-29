@@ -22,6 +22,7 @@ public class EquationDeg2 {
         Class solverInterface = Class.forName("equationdeg2.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
         int total = 0, totFalse = 0;
+        System.out.println("Tolérance:  " + donneesTest.get(0).tolerance);
         for (int i=0; i<donneesTest.size(); i++){
             ArrayList<Double> results = solv.resolve(donneesTest.get(i).donneeEntree.a, donneesTest.get(i).donneeEntree.b, donneesTest.get(i).donneeEntree.c);
             boolean decision = Test.verify(donneesTest.get(i).donneeEntree, results, donneesTest.get(i).resultatAttendu, donneesTest.get(i).tolerance);
@@ -32,6 +33,7 @@ public class EquationDeg2 {
             total += 1;
         }
         System.out.println("\n\nTotal Tests Ratés: "+totFalse+"/"+" "+total);
+        System.out.println("Total Tests Réussis: "+(total - totFalse)+"/"+" "+total);
 
     }
 }

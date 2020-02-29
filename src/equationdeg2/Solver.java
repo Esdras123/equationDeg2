@@ -20,13 +20,13 @@ public class Solver implements SolverInterface{
         if (a != 0) {
             double delta = (Math.pow(b, 2) - (4 * a * c));
             if (delta == 0) {
-                sol.add((-b / 2 * a));
+                sol.add((-b / (2 * a)));
                 return sol;
             } else if (delta < 0) {
                 return sol;
             } else {
-                sol.add(((-b + Math.sqrt(delta)) / 2 * a));
-                sol.add(((-b - Math.sqrt(delta)) / 2 * a));
+                sol.add(((-b + Math.sqrt(delta)) / (2 * a)));
+                sol.add(((-b - Math.sqrt(delta)) / (2 * a)));
                 return sol;
             }
         } else {

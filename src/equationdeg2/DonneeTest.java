@@ -52,6 +52,9 @@ public class DonneeTest {
                 if (c == 0) {
                     liste = null;
                 }
+                if (c!=0) {
+                    liste.add(-c);
+                }
             }
             else{
                 if (c==0){
@@ -84,7 +87,7 @@ public class DonneeTest {
 
     @Override
     public String toString() {
-        String chaine = donneeEntree.toString() + "   " + "tol: " + tolerance + " RA: ";
+        String chaine = donneeEntree.toString() + "   " + " RA: ";
         if (resultatAttendu == null) {
             return chaine + "null";
         }
