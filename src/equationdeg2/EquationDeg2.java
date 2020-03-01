@@ -16,7 +16,7 @@ public class EquationDeg2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		System.out.println(Afficharge.titre("Donnees de test pour la résolution de l'éqution aX^2+bX+c=0"));
+		System.out.println(Afficharge.titre("Donnees de test pour la rÃ©solution de l'ï¿½qution aX^2+bX+c=0"));
         ArrayList<DonneeTest> donneesTest = GenerationDonnee.getDonneesTest("scennarios.txt", GenerationDonnee.genererDonneesEntree(), 10e-6, "Solver", "Test");
 
         Class solverInterface = Class.forName("equationdeg2.Solver");
@@ -24,7 +24,7 @@ public class EquationDeg2 {
         int total = 0, totFalse = 0;
        
         System.out.println( Afficharge.separation());
-        System.out.println(Afficharge.creerLigne("a", "b", "c", "Tolérance", "Résultat attendu", "Résultat obtenu", "Oracle"));
+        System.out.println(Afficharge.creerLigne("a", "b", "c", "TolÃ©rance", "RÃ©sultat attendu", "RÃ©sultat obtenu", "Oracle"));
         for (int i=0; i<donneesTest.size(); i++){
             ArrayList<Double> results = solv.resolve(donneesTest.get(i).donneeEntree.a, donneesTest.get(i).donneeEntree.b, donneesTest.get(i).donneeEntree.c);
             boolean decision = Test.verify(donneesTest.get(i).donneeEntree, results, donneesTest.get(i).resultatAttendu, donneesTest.get(i).tolerance);
@@ -36,7 +36,7 @@ public class EquationDeg2 {
            
         }
         
-    	System.out.println(Afficharge.titre("Total Tests Ratés: "+totFalse+"/"+" "+total + "             Total Tests Réussis: "+(total - totFalse)+"/"+" "+total));
+    	System.out.println(Afficharge.titre("Total Tests RatÃ©s: "+totFalse+"/"+" "+total + "             Total Tests RÃ©ussis: "+(total - totFalse)+"/"+" "+total));
         
 
     }
