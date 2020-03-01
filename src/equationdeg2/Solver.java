@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author ESDRAS
  */
-public class Solver implements SolverInterface{
+public class Solver implements SolverInterface {
 
     @Override
     public ArrayList<Double> resolve(double a, double b, double c) {
@@ -25,8 +25,19 @@ public class Solver implements SolverInterface{
             } else if (delta < 0) {
                 return sol;
             } else {
-                sol.add(((-b + Math.sqrt(delta)) / (2 * a)));
-                sol.add(((-b - Math.sqrt(delta)) / (2 * a)));
+                if(Math.abs((4*a*c)/(b*b)) < 1e-15){
+                    if (b > 0) {
+                        sol.add(-c / b);
+                        sol.add(((-b - Math.sqrt(delta)) / (2 * a)));
+                    }
+                    if (b < 0) {
+                        sol.add(((-b + Math.sqrt(delta)) / (2 * a)));
+                        sol.add(-c / b);
+                    }
+                } else {
+                    sol.add(((-b + Math.sqrt(delta)) / (2 * a)));
+                    sol.add(((-b - Math.sqrt(delta)) / (2 * a)));
+                }
                 return sol;
             }
         } else {
@@ -34,15 +45,16 @@ public class Solver implements SolverInterface{
                 sol.add((-c / b));
                 return sol;
             } else {
-                if (c!=0)
+                if (c != 0) {
                     return sol;
-                else
+                } else {
                     return null;
+                }
             }
         }
     }
-    
-        /**
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -55,5 +67,5 @@ public class Solver implements SolverInterface{
         System.out.println(solver.resolve(0, 0, 4));
         System.out.println(solver.resolve(0, 0, 0));
     }
-    
+
 }
