@@ -27,9 +27,10 @@ public class EquationDeg2 {
         System.out.println(Afficharge.creerLigne("a", "b", "c", "Tolérance", "Résultat attendu", "Résultat obtenu", "Oracle"));
         for (int i=0; i<donneesTest.size(); i++){
             ArrayList<Double> results = solv.resolve(donneesTest.get(i).donneeEntree.a, donneesTest.get(i).donneeEntree.b, donneesTest.get(i).donneeEntree.c);
+            String solution = new String();
             boolean decision = Test.verify(donneesTest.get(i).donneeEntree, results, donneesTest.get(i).resultatAttendu, donneesTest.get(i).tolerance);
           
-           System.out.println(Afficharge.creerLigne( Double.toString(donneesTest.get(i).donneeEntree.a), Double.toString(donneesTest.get(i).donneeEntree.b),Double.toString(donneesTest.get(i).donneeEntree.c) ,Double.toString(donneesTest.get(0).tolerance) , donneesTest.get(i).resultatAttendu.toString(), results.toString(), Boolean.toString(decision)));
+           System.out.println(Afficharge.creerLigne( Double.toString(donneesTest.get(i).donneeEntree.a), Double.toString(donneesTest.get(i).donneeEntree.b),Double.toString(donneesTest.get(i).donneeEntree.c) ,Double.toString(donneesTest.get(0).tolerance) , donneesTest.get(i).resultatAttendu.toString(), results == null ? "" : results.toString() , Boolean.toString(decision)));
             if (!decision)
                 totFalse += 1;
             total += 1;

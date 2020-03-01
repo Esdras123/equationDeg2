@@ -7,10 +7,7 @@ package equationdeg2;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author ESDRAS
- */
+
 public interface SolverInterface {
     /*renvoie :
     ****null dans le cas ou a=b=c=0

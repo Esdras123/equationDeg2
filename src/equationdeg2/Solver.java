@@ -7,10 +7,6 @@ package equationdeg2;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author ESDRAS
- */
 public class Solver implements SolverInterface{
 
     @Override
@@ -18,26 +14,36 @@ public class Solver implements SolverInterface{
         ArrayList<Double> sol = new ArrayList<>();
 
         if (a != 0) {
-            double delta = (Math.pow(b, 2) - (4 * a * c));
-            if (delta == 0) {
-                sol.add((-b / (2 * a)));
-                return sol;
-            } else if (delta < 0) {
-                return sol;
+            if (b==0) {
+                if (( a > 0 && c > 0) || (a < 0 && c < 0)){
+                    return sol;
+                } else {
+                    sol.add(Math.sqrt(-(c/a)));
+                    return sol;
+                }
             } else {
-                sol.add(((-b + Math.sqrt(delta)) / (2 * a)));
-                sol.add(((-b - Math.sqrt(delta)) / (2 * a)));
-                return sol;
+                double delta = (- (4 * a * c) + Math.pow(b, 2)) ;
+                if (delta == 0) {
+                    sol.add((-b / (2 * a)));
+                    return sol;
+                } else if (delta < 0) {
+                    return sol;
+                } else {
+                    sol.add(((-b + Math.sqrt(delta)) / (2 * a)));
+                    sol.add(((-b - Math.sqrt(delta)) / (2 * a)));
+                    return sol;
+                }
             }
         } else {
             if (b != 0) {
                 sol.add((-c / b));
+
                 return sol;
             } else {
-                if (c!=0)
+                if (c != 0)
                     return sol;
                 else
-                    return null;
+                    return sol;
             }
         }
     }
