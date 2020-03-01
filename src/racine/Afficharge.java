@@ -9,7 +9,7 @@ public class Afficharge {
     public static String titre(String titre) {
         //	System.out.println(titre.length());
         String affiche = "";
-        String debut = "*************************************************************************************************************************************************************************************************************************\n";
+        String debut = "**************************************************************************************************************\n";
 
         StringBuilder sb = new StringBuilder();
         sb.append(debut);
@@ -47,7 +47,7 @@ public class Afficharge {
         StringBuilder sb = new StringBuilder();
         sb.append("| ");
         sb.append(a);
-        sb.append(espaces(26 - a.length()));
+        sb.append(espaces(20- a.length()));
 
         sb.append("| ");
         sb.append(tol);
@@ -55,11 +55,11 @@ public class Afficharge {
 
         sb.append("| ");
         sb.append(ra);
-        sb.append(espaces(50 - ra.length()));
+        sb.append(espaces(20 - ra.length()));
 
         sb.append("| ");
         sb.append(ro);
-        sb.append(espaces(50 - ro.length()));
+        sb.append(espaces(30 - ro.length()));
 
         sb.append("| ");
         sb.append(oracle);
@@ -73,24 +73,21 @@ public class Afficharge {
     public static String separation() {
 
         String a = "+";
-        for (int i = 1; i < 220; i++) {
+        for (int i = 1; i < 108; i++) {
             switch (i) {
-                case 28:
+                case 22:
                     a += "+";
                     break;
-                case 56:
+                case 44:
                     a += "+";
                     break;
-                case 84:
+                case 66:
                     a += "+";
                     break;
-                case 106:
+                case 98:
                     a += "+";
                     break;
-                case 158:
-                    a += "+";
-                    break;
-                case 210:
+                case 108:
                     a += "+";
                     break;
                 default:

@@ -29,7 +29,7 @@ public class Racine {
             if(donneesTest.get(i).resultatAttendu != null)
                 ra = donneesTest.get(i).resultatAttendu.toString();
             if (results!= null)
-                ro = results.toString();
+                ro = Double.toString(Math.pow(results, 2));
             
             System.out.println(Afficharge.creerLigne(Double.toString(donneesTest.get(i).donneeEntree.x), Double.toString(donneesTest.get(0).tolerance), ra, ro, Boolean.toString(decision)));
             if (!decision) {
