@@ -37,7 +37,8 @@ public class Test {
                     if (results != null) {
                         for (int i = 0; i < results.size(); i++) {
                             double val = results.get(i);
-                            if (Math.abs((a * Math.pow(val, 2) + b * val - resultAttendu.get(0)) / (-resultAttendu.get(0))) >= tol) {
+                            double v = Math.abs((a * Math.pow(val, 2) + b * val - resultAttendu.get(0)) / (-resultAttendu.get(0)));
+                            if (v >= tol) {
                                 return false;
                             }
                         }
